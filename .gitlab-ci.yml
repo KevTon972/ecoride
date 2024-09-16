@@ -1,0 +1,12 @@
+image: php:7.4-fpm
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - composer install
+    - phpunit .
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
