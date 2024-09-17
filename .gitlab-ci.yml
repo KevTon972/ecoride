@@ -25,10 +25,8 @@ test:
 deploy:
   stage: deploy
   script:
-    - echo "Déploiement vers production"  # Remplacer par votre script de déploiement
+    - echo "Déploiement vers production"  
   only:
-    - main  # Exécuter cette étape uniquement pour la branche main (équivalent de master)
-
-# Exemple de règle pour déclencher le pipeline uniquement sur les merge requests vers main
+    - master
 rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
