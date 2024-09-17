@@ -31,4 +31,4 @@ deploy:
 
 # Exemple de règle pour déclencher le pipeline uniquement sur les merge requests vers main
 rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
