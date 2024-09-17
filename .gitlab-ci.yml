@@ -1,32 +1,27 @@
-image: node:14-alpine
+image: php:latest
 
 stages:
-  - build
   - test
-  - deploy
-
 cache:
   paths:
-    - node_modules/
+    - vendor/
 
 before_script:
-  - npm ci
-
-build:
-  stage: build
-  script:
-    - npm run build
+  - composer install
 
 test:
   stage: test
   script:
-    - npm test
-
-deploy:
-  stage: deploy
-  script:
-    - echo "Déploiement vers production"  
+    - vendor/bin/phpunit
   only:
+    - branches
+  except:
     - master
-rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+
+.pre-merge:
+  stage: test
+  script:
+    - echo "Merge request event detected. Running tests..."
+    - vendor/bin/phpunit
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request"'
