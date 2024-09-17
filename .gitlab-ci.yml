@@ -1,12 +1,34 @@
-image: php:7.4-fpm
+image: node:14-alpine
 
 stages:
+  - build
   - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm ci
+
+build:
+  stage: build
+  script:
+    - npm run build
 
 test:
   stage: test
   script:
-    - composer install
-    - phpunit .
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'git
+    - npm test
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Déploiement vers production"  # Remplacer par votre script de déploiement
+  only:
+    - main  # Exécuter cette étape uniquement pour la branche main (équivalent de master)
+
+# Exemple de règle pour déclencher le pipeline uniquement sur les merge requests vers main
+rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
