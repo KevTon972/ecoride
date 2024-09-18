@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Ecoride{% endblock %}</title>
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #005925;">
+    <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand ml-5" href="#">
+    <img src= "{{ asset('images/logo/logo.jpg') }}" alt="logo" class="rounded-circle" style="height: 81px" style="width: 81px"/>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="color: #FFE4E4" href="#">Covoiturage</a>
+        </li>
+      </ul>
+    </div>
+    <a class="navbar-brand ml-5" href="#">
+    <img src= "{{ asset('images/boutton/connexion_boutton.png') }}" alt="boutton de connexion" class="rounded-circle" style="height: 32px" style="width: 32px"/>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="color: #FFE4E4" href="#">Contact</a>
+        </li>
+      </ul>
+</nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>
