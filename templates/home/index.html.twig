@@ -1,7 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<div class="example-wrapper">
+<div class="row justify-content-center mt-5 col-md-11">
+<form class="col-md-7 rounded-pill d-flex justify-content-between" action="#" method="post" style="background-color: #005925;">
+<div class="row align-items-center d-flex justify-content-between border-0">
+  <div class="col-auto m-0 p-0 border-end border-1 align-items-center d-flex">
+    <img src= "{{ asset('images/ellipse/ellipse.png') }}" alt="ellipse" class="rounded-circle ml-5 position-absolute start ms-5" style="height: 15px"/>
+    <input type="text" id="lieuDepart" class="form-control text-center border-0 rounded-pill" placeholder="Départ"  style="background-color: #005925;">
+  </div>
+  <div class="col-auto m-0 p-0 border-end border-1 align-items-center d-flex">
+    <img src= "{{ asset('images/ellipse/ellipse.png') }}" alt="ellipse" class="rounded-circle ml-5 position-absolute start ms-4" style="height: 15px"/>
+    <input type="text" id="destination" class="form-control text-center border-0" placeholder="Destination"  style="background-color: #005925;">
+  </div>
+  <div class="col-auto m-0 p-0 border-end border-1  align-items-center d-flex">
+    <img src= "{{ asset('images/calendrier/logo_calendrier.png') }}" alt="logo_calendrier" class="ml-5 position-absolute start ms-4" style="height: 15px"/>
+    <input type="text" id="dates" class="form-control text-center border-0" placeholder="Dates"  style="background-color: #005925;">
+  </div>
+  <div class="col-auto m-0 p-0 border-end border-1  align-items-center d-flex">
+    <img src= "{{ asset('images/logo/logo_user.png') }}" alt="logo_user" class="rounded-circle ml-5 position-absolute start ms-4" style="height: 15px"/>
+     <input type="text" id="nbPassager" class="form-control text-center border-0" placeholder="Passager"  style="background-color: #005925;">
+  </div>
+  <div class="col-auto ps-5">
+  <button type="submit" class="btn col-auto m-0" style="color: #FFE4E4; background-color: #005925; widht: 25px">rechercher</button>
+</div>
+</div>
+</form>
 </div>
 {% endblock %}
